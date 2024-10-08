@@ -10,12 +10,12 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="当我突然来了兴趣想要编译文章时突然发现好久没有使用的git不可以正确使用了，登录GitHub才发现原来是公钥失效了啊， 然后就萌生了编译一篇解决公钥失效的文章以方便日后查看，那么就跟随我的节奏一起来解决一下吧 hexo d 后程序报以下错误    Please make sure you have the correct access rights and the repository exist">
+  <meta name="description" content="关于密钥无法正常使用的问题​	当我突然来了兴趣想要编译文章时突然发现好久没有使用的git不可以正确使用了，登录GitHub才发现原来是公钥失效了啊，然后就萌生了编译一篇解决公钥失效的文章以方便日后查看，那么就跟随我的节奏一起来解决一下吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="公钥失效正确处理方法">
 <meta property="og:url" content="http://example.com/2024/10/08/15/index.html">
 <meta property="og:site_name" content="Dear-Star">
-<meta property="og:description" content="当我突然来了兴趣想要编译文章时突然发现好久没有使用的git不可以正确使用了，登录GitHub才发现原来是公钥失效了啊， 然后就萌生了编译一篇解决公钥失效的文章以方便日后查看，那么就跟随我的节奏一起来解决一下吧 hexo d 后程序报以下错误    Please make sure you have the correct access rights and the repository exist">
+<meta property="og:description" content="关于密钥无法正常使用的问题​	当我突然来了兴趣想要编译文章时突然发现好久没有使用的git不可以正确使用了，登录GitHub才发现原来是公钥失效了啊，然后就萌生了编译一篇解决公钥失效的文章以方便日后查看，那么就跟随我的节奏一起来解决一下吧。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:\Users\15265\Desktop\%E6%9C%AA%E6%95%B4%E7%90%86\bk\%E5%85%AC%E9%92%A5%E9%94%99%E8%AF%AF.png">
 <meta property="og:image" content="c:\Users\15265\Desktop\%E6%9C%AA%E6%95%B4%E7%90%86\bk.shh.png">
@@ -26,7 +26,7 @@
 <meta property="og:image" content="c:\Users\15265\Desktop\%E6%9C%AA%E6%95%B4%E7%90%86\bk\Snipaste_2024-10-08_11-45-41.png">
 <meta property="og:image" content="c:\Users\15265\Desktop\%E6%9C%AA%E6%95%B4%E7%90%86\bk\Snipaste_2024-10-08_11-47-26.png">
 <meta property="article:published_time" content="2024-10-08T07:55:12.000Z">
-<meta property="article:modified_time" content="2024-10-08T09:35:46.848Z">
+<meta property="article:modified_time" content="2024-10-08T09:48:13.285Z">
 <meta property="article:author" content="Dear-Star">
 <meta property="article:tag" content="博客 教程">
 <meta name="twitter:card" content="summary">
@@ -329,7 +329,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">379字</span>
+      <span class="post-count">394字</span>
     </span>
   </span>
 
@@ -355,7 +355,7 @@ var _hmt = _hmt || [];
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%8C%E6%B8%85%E9%99%A4-ssh%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">1，清除.ssh文件夹下所有文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%8C%E5%9C%A8git%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E9%87%8D%E6%96%B0%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1-%E5%BD%93%E6%97%B6%E6%B3%A8%E5%86%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E9%82%AE%E7%AE%B1"><span class="toc-number">2.</span> <span class="toc-text">2，在git命令行中重新设置用户名和邮箱(当时注册使用的邮箱)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%BC%8C%E7%94%9F%E6%88%90ssh-key"><span class="toc-number">3.</span> <span class="toc-text">3，生成ssh key</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%EF%BC%8C%E9%85%8D%E7%BD%AEgit"><span class="toc-number">4.</span> <span class="toc-text">4，配置git</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AF%86%E9%92%A5%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">关于密钥无法正常使用的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">解决步骤：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%8C%E6%B8%85%E9%99%A4-ssh%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">1，清除.ssh文件夹下所有文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%8C%E5%9C%A8git%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E9%87%8D%E6%96%B0%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1-%E5%BD%93%E6%97%B6%E6%B3%A8%E5%86%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E9%82%AE%E7%AE%B1"><span class="toc-number">1.1.2.</span> <span class="toc-text">2，在git命令行中重新设置用户名和邮箱(当时注册使用的邮箱)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%BC%8C%E7%94%9F%E6%88%90ssh-key"><span class="toc-number">1.1.3.</span> <span class="toc-text">3，生成ssh key</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%EF%BC%8C%E9%85%8D%E7%BD%AEgit"><span class="toc-number">1.1.4.</span> <span class="toc-text">4，配置git</span></a></li></ol></li></ol></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -377,16 +377,16 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>当我突然来了兴趣想要编译文章时突然发现好久没有使用的git不可以正确使用了，登录GitHub才发现原来是公钥失效了啊，</p>
-<p>然后就萌生了编译一篇解决公钥失效的文章以方便日后查看，那么就跟随我的节奏一起来解决一下吧</p>
+    <h3 id="关于密钥无法正常使用的问题"><a href="#关于密钥无法正常使用的问题" class="headerlink" title="关于密钥无法正常使用的问题"></a>关于密钥无法正常使用的问题</h3><p>​	当我突然来了兴趣想要编译文章时突然发现好久没有使用的git不可以正确使用了，登录GitHub才发现原来是公钥失效了啊，然后就萌生了编译一篇解决公钥失效的文章以方便日后查看，那么就跟随我的节奏一起来解决一下吧。</p>
+<span id="more"></span>
+
 <p>hexo d 后程序报以下错误</p>
 <blockquote>
 <p><img src="C:\Users\15265\Desktop\未整理\bk\公钥错误.png" alt="报错"></p>
 </blockquote>
 <p>Please make sure you have the correct access rights and the repository exist</p>
 <p>意思是没有访问权限，主要原因是公钥</p>
-<p>解决</p>
-<h5 id="1，清除-ssh文件夹下所有文件"><a href="#1，清除-ssh文件夹下所有文件" class="headerlink" title="1，清除.ssh文件夹下所有文件"></a>1，清除.ssh文件夹下所有文件</h5><blockquote>
+<h4 id="解决步骤："><a href="#解决步骤：" class="headerlink" title="解决步骤："></a>解决步骤：</h4><h5 id="1，清除-ssh文件夹下所有文件"><a href="#1，清除-ssh文件夹下所有文件" class="headerlink" title="1，清除.ssh文件夹下所有文件"></a>1，清除.ssh文件夹下所有文件</h5><blockquote>
 <p><img src="C:\Users\15265\Desktop\未整理\bk.shh.png"></p>
 </blockquote>
 <h5 id="2，在git命令行中重新设置用户名和邮箱-当时注册使用的邮箱"><a href="#2，在git命令行中重新设置用户名和邮箱-当时注册使用的邮箱" class="headerlink" title="2，在git命令行中重新设置用户名和邮箱(当时注册使用的邮箱)"></a>2，在git命令行中重新设置用户名和邮箱(当时注册使用的邮箱)</h5><p><img src="C:\Users\15265\Desktop\未整理\bk\配置公钥1.png"></p>
@@ -742,19 +742,19 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">博客 搭建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 教程</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客 问题总结</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客 问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">博客 教程</a>
               </li>
             
             <div class="clearfix"></div>
