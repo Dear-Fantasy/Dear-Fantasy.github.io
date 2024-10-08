@@ -387,6 +387,136 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2024/10/08/15/" target="_blank">公钥失效正确处理方法</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2024/10/08/15/" class="archive-article-date">
+        <time datetime="2024-10-08T07:55:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-10-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+        <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>当我突然来了兴趣想要编译文章时突然发现好久没有使用的git不可以正确使用了，登录GitHub才发现原来是公钥失效了啊，</p>
+<p>然后就萌生了编译一篇解决公钥失效的文章以方便日后查看，那么就跟随我的节奏一起来解决一下吧</p>
+<p>hexo d 后程序报以下错误</p>
+<blockquote>
+<p><img src="C:\Users\15265\Desktop\未整理\bk\公钥错误.png" alt="报错"></p>
+</blockquote>
+<p>Please make sure you have the correct access rights and the repository exist</p>
+<p>意思是没有访问权限，主要原因是公钥</p>
+<p>解决</p>
+<h5 id="1，清除-ssh文件夹下所有文件"><a href="#1，清除-ssh文件夹下所有文件" class="headerlink" title="1，清除.ssh文件夹下所有文件"></a>1，清除.ssh文件夹下所有文件</h5><blockquote>
+<p><img src="C:\Users\15265\Desktop\未整理\bk.shh.png"></p>
+</blockquote>
+<h5 id="2，在git命令行中重新设置用户名和邮箱-当时注册使用的邮箱"><a href="#2，在git命令行中重新设置用户名和邮箱-当时注册使用的邮箱" class="headerlink" title="2，在git命令行中重新设置用户名和邮箱(当时注册使用的邮箱)"></a>2，在git命令行中重新设置用户名和邮箱(当时注册使用的邮箱)</h5><p><img src="C:\Users\15265\Desktop\未整理\bk\配置公钥1.png"></p>
+<blockquote>
+<p>&#x2F;&#x2F;修改用户名 		git config –global user.name ‘用户名’ </p>
+<p>&#x2F;&#x2F;修改邮箱 		git config –global user.email ‘邮箱’ </p>
+<p>为了保证没有输入错误，可以检查配置一下是否正确，输入q退出</p>
+<p>&#x2F;&#x2F;查看设置 		git config –list </p>
+</blockquote>
+<h5 id="3，生成ssh-key"><a href="#3，生成ssh-key" class="headerlink" title="3，生成ssh key"></a>3，生成ssh key</h5><p><img src="C:\Users\15265\Desktop\未整理\bk\配置公钥.png"></p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “git上注册使用的邮箱” （连续回车即可）</p>
+<p>第一个回车是代表在默认文件id_rsa上生成ssh key</p>
+<p>第二个回车表示不设置密码</p>
+<p>第三个回车是重复确认密码，不设置就不用管</p>
+<p>注意：<br>ssh-keygen -t rsa -c “邮箱@qq.com” 里面的<br>-c 中 （c是大写的C），改过后成功实现。</p>
+</blockquote>
+<blockquote>
+<p><img src="C:\Users\15265\Desktop\未整理\bk\配置公钥2.png"></p>
+</blockquote>
+<h5 id="4，配置git"><a href="#4，配置git" class="headerlink" title="4，配置git"></a>4，配置git</h5><p>获取并查看key</p>
+<p><img src="C:\Users\15265\Desktop\未整理\bk\Snipaste_2024-10-08_11-49-13.png"></p>
+<blockquote>
+<p> cat ~&#x2F;.ssh&#x2F;id_rsa.pub </p>
+</blockquote>
+<p>打开GitHub</p>
+<blockquote>
+<p><img src="C:\Users\15265\Desktop\未整理\bk\Snipaste_2024-10-08_11-45-41.png"></p>
+<p><img src="C:\Users\15265\Desktop\未整理\bk\Snipaste_2024-10-08_11-47-26.png"></p>
+<p>然后将刚刚获取到的key添加到里面，点击Add key 提交即可。</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">博客 教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2024/10/08/15/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1080,96 +1210,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/13/7/" target="_blank">行内元素与块级元素</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/13/7/" class="archive-article-date">
-        <time datetime="2022-06-12T16:38:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-        <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h2><p>例如：p hr div
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">博客 资料</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/13/7/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1332,11 +1372,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客 问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 教程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 教程</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客 问题总结</a>
               </li>
             
             <div class="clearfix"></div>
