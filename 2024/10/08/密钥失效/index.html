@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://nbviewer.org/github/Dear-Fantasy/Dear-Fantasy.github.io/blob/master/images/shhError/settings1.png">
 <meta property="og:image" content="https://nbviewer.org/github/Dear-Fantasy/Dear-Fantasy.github.io/blob/master/images/shhError/settings2.png">
 <meta property="article:published_time" content="2024-10-08T07:55:12.000Z">
-<meta property="article:modified_time" content="2024-10-15T02:48:05.686Z">
+<meta property="article:modified_time" content="2024-10-15T05:34:12.817Z">
 <meta property="article:author" content="Dear-Star">
 <meta property="article:tag" content="博客 教程">
 <meta name="twitter:card" content="summary">
@@ -611,6 +611,36 @@ var _hmt = _hmt || [];
 
 
 
+<!--valine评论系统 -->
+
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            emoticon_url: 'https://cloud.panjunwen.com/alu',
+            emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
+            app_id: "KGiiCrfqsl7wF2lWQU7EiU4w-gzGzoHsz",
+            app_key: "jcKfBQWsKViRqRjcM6lyPckY",
+            placeholder: "有话要说？",
+            avatar:"mm"
+        });
+    }
+</script>
+
+    </section>
+  
 
 
           </div>
@@ -760,15 +790,15 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">博客 搭建</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">博客 教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
               </li>
              
               <li class="article-tag-list-item">
