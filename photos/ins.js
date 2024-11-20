@@ -1,4 +1,4 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/******/
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>/******/
 (function(modules) { // webpackBootstrap
   /******/ // The module cache
   /******/
@@ -119,8 +119,8 @@
         var data = res.list[j].arr;
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
-          var minSrc = 'https://raw.githubusercontent.com/Dear-Fantasy/HexoBlog-Prctrue/master/min_photos/' + data.link[i];
-          var src = 'https://raw.githubusercontent.com/Dear-Fantasy/HexoBlog-Prctrue/master/photos/' + data.link[i];
+          var minSrc = 'https://raw.githubusercontent.com/Dear-Fantasy/HexoBlog-Picture/main/min_photos/' + data.link[i];
+          var src = 'https://raw.githubusercontent.com/Dear-Fantasy/HexoBlog-Picture/main/photos' + data.link[i];
           var type = data.type[i];
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
           src += '';
