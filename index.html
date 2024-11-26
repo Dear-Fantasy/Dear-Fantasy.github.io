@@ -536,7 +536,22 @@ var _hmt = _hmt || [];
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <p>1，评论功能</p>
+<p>最近访问博客的时候发现当前的博客没有评论功能，就想着添加一个评论插件以解决这个功能的缺失问题毕竟多个评论功能还能和博友们交流一下问题，在网上查找了大量信息发现大多数评论系统已经不可以使用了，看到Vline挺简便的就选择了这个，因为我使用的是yilia主题，其他主题仅供参考。</p>
+<p>2，注册LeanCloud并安装应用</p>
+<p>正如首页所介绍的Valine是”一款基于LeanCloud的快速、简洁且高效的无后端评论系统”，所以我们先注册一下LeanCloud账号，附加注册地址如下：<a target="_blank" rel="noopener" href="https://leancloud.cn/">LeanCloud</a></p>
+<p>进入首页填写一下基本信息进行注册。</p>
+<p><img src="C:\Users\15265\Desktop\测试\HexoBlog\blog\source\images\2024-11-25\LeanCloud.png"></p>
+<p>注册好账号后进入控制台创建一个应用，应用名称自行填写，进行简单描述。</p>
+<p><img src="C:\Users\15265\Desktop\测试\HexoBlog\blog\source\images\2024-11-25\创建应用.png"></p>
+<p>创建好应用后进入页面点击设置&gt;应用凭证，我们就可以查看到自己的App ID和App Key了（后面配置需要用！！！到）。</p>
+<p><img src="C:\Users\15265\Desktop\测试\HexoBlog\blog\source\images\2024-11-25\配置key.png"></p>
+<p>3，配置_config.yml</p>
+<p>修改 hexo博客目录的 theme&#x2F;yilia 中的 <code>_config.yml</code> 文件，增加配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#5、Valine https://valine.js.org</span></span><br><span class="line"><span class="attr">valine:</span> </span><br><span class="line"> <span class="attr">appid:</span> <span class="comment">#Leancloud应用的appId</span></span><br><span class="line"> <span class="attr">appkey:</span> <span class="comment">#Leancloud应用的appKey</span></span><br><span class="line"> <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment">#验证码，verify和notify这两个最好就别动了</span></span><br><span class="line"> <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment">#评论回复提醒</span></span><br><span class="line"> <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment">#评论列表头像样式：&#x27;&#x27;/mm/identicon/monsterid/wavatar/retro/hide</span></span><br><span class="line"> <span class="attr">placeholder:</span> <span class="string">站到,快来说说话!</span> <span class="comment">#评论框占位符</span></span><br></pre></td></tr></table></figure>
+
+<p>4，修改article.ejs</p>
+
     
 
     
@@ -1413,7 +1428,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 教程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1421,7 +1436,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 教程</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1429,11 +1444,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客 问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 心得</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 心得</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客 问题总结</a>
               </li>
             
             <div class="clearfix"></div>
