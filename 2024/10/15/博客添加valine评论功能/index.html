@@ -10,18 +10,19 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="1，评论功能 最近访问博客的时候发现当前的博客没有评论功能，就想着添加一个评论插件以解决这个功能的缺失问题毕竟多个评论功能还能和博友们交流一下问题，在网上查找了大量信息发现大多数评论系统已经不可以使用了，看到Vline挺简便的就选择了这个，因为我使用的是yilia主题，其他主题仅供参考。 2，注册LeanCloud并安装应用 正如首页所介绍的Valine是”一款基于LeanCloud的快速、简洁且">
+  <meta name="description" content="1，评论功能  最近访问博客的时候发现当前的博客没有评论功能，就想着添加一个评论插件以解决这个功能的缺失问题毕竟多个评论功能还能和博友们交流一下问题，在网上查找了大量信息发现大多数评论系统已经不可以使用了，看到Vline挺简便的就选择了这个，因为我使用的是yilia主题，其他主题仅供参考。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客添加valine评论功能">
 <meta property="og:url" content="http://example.com/2024/10/15/%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0valine%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/index.html">
 <meta property="og:site_name" content="Dear-Star">
-<meta property="og:description" content="1，评论功能 最近访问博客的时候发现当前的博客没有评论功能，就想着添加一个评论插件以解决这个功能的缺失问题毕竟多个评论功能还能和博友们交流一下问题，在网上查找了大量信息发现大多数评论系统已经不可以使用了，看到Vline挺简便的就选择了这个，因为我使用的是yilia主题，其他主题仅供参考。 2，注册LeanCloud并安装应用 正如首页所介绍的Valine是”一款基于LeanCloud的快速、简洁且">
+<meta property="og:description" content="1，评论功能  最近访问博客的时候发现当前的博客没有评论功能，就想着添加一个评论插件以解决这个功能的缺失问题毕竟多个评论功能还能和博友们交流一下问题，在网上查找了大量信息发现大多数评论系统已经不可以使用了，看到Vline挺简便的就选择了这个，因为我使用的是yilia主题，其他主题仅供参考。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="c:\Users\15265\Desktop\%E6%B5%8B%E8%AF%95\HexoBlog\blog\source\images\2024-11-25\LeanCloud.png">
 <meta property="og:image" content="c:\Users\15265\Desktop\%E6%B5%8B%E8%AF%95\HexoBlog\blog\source\images\2024-11-25\%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8.png">
 <meta property="og:image" content="c:\Users\15265\Desktop\%E6%B5%8B%E8%AF%95\HexoBlog\blog\source\images\2024-11-25\%E9%85%8D%E7%BD%AEkey.png">
+<meta property="og:image" content="c:\Users\15265\Desktop\%E6%B5%8B%E8%AF%95\HexoBlog\blog\source\images\2024-11-25\%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86.png">
 <meta property="article:published_time" content="2024-10-15T07:56:14.000Z">
-<meta property="article:modified_time" content="2024-11-26T08:09:41.056Z">
+<meta property="article:modified_time" content="2024-11-26T09:04:00.097Z">
 <meta property="article:author" content="Dear-Star">
 <meta property="article:tag" content="博客 搭建">
 <meta name="twitter:card" content="summary">
@@ -342,7 +343,7 @@ var _hmt = _hmt || [];
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">385字</span>
+      <span class="post-count">791字</span>
     </span>
   </span>
 
@@ -351,7 +352,7 @@ var _hmt = _hmt || [];
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -360,27 +361,57 @@ var _hmt = _hmt || [];
   
   </header>
         <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%8C%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD"><span class="toc-number">1.</span> <span class="toc-text">1，评论功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%8C%E6%B3%A8%E5%86%8CLeanCloud%E5%B9%B6%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2，注册LeanCloud并安装应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%8C%E9%85%8D%E7%BD%AE-config-yml"><span class="toc-number">3.</span> <span class="toc-text">3，配置_config.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%8C%E4%BF%AE%E6%94%B9article-ejs"><span class="toc-number">4.</span> <span class="toc-text">4，修改article.ejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%EF%BC%8C%E6%B7%BB%E5%8A%A0valine%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">5，添加valine文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%EF%BC%8C%E8%BF%9B%E8%A1%8C%E4%BB%A5%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%90%8E%EF%BC%8C%E9%87%8D%E6%96%B0%E7%94%9F%E6%88%90%E3%80%81%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%EF%BC%8C%E4%B8%89%E8%BF%9E%E4%B8%80%E4%B8%8B"><span class="toc-number">6.</span> <span class="toc-text">6，进行以上配置后，重新生成、部署博客，三连一下</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>1，评论功能</p>
-<p>最近访问博客的时候发现当前的博客没有评论功能，就想着添加一个评论插件以解决这个功能的缺失问题毕竟多个评论功能还能和博友们交流一下问题，在网上查找了大量信息发现大多数评论系统已经不可以使用了，看到Vline挺简便的就选择了这个，因为我使用的是yilia主题，其他主题仅供参考。</p>
-<p>2，注册LeanCloud并安装应用</p>
-<p>正如首页所介绍的Valine是”一款基于LeanCloud的快速、简洁且高效的无后端评论系统”，所以我们先注册一下LeanCloud账号，附加注册地址如下：<a target="_blank" rel="noopener" href="https://leancloud.cn/">LeanCloud</a></p>
+    <h3 id="1，评论功能"><a href="#1，评论功能" class="headerlink" title="1，评论功能"></a>1，评论功能</h3><p>  最近访问博客的时候发现当前的博客没有评论功能，就想着添加一个评论插件以解决这个功能的缺失问题毕竟多个评论功能还能和博友们交流一下问题，在网上查找了大量信息发现大多数评论系统已经不可以使用了，看到Vline挺简便的就选择了这个，因为我使用的是yilia主题，其他主题仅供参考。<span id="more"></span></p>
+<h3 id="2，注册LeanCloud并安装应用"><a href="#2，注册LeanCloud并安装应用" class="headerlink" title="2，注册LeanCloud并安装应用"></a>2，注册LeanCloud并安装应用</h3><p> 正如首页所介绍的Valine是”一款基于LeanCloud的快速、简洁且高效的无后端评论系统”，所以我们先注册一下LeanCloud账号，附加注册地址如下：<a target="_blank" rel="noopener" href="https://leancloud.cn/">LeanCloud</a></p>
 <p>进入首页填写一下基本信息进行注册。</p>
 <p><img src="C:\Users\15265\Desktop\测试\HexoBlog\blog\source\images\2024-11-25\LeanCloud.png"></p>
 <p>注册好账号后进入控制台创建一个应用，应用名称自行填写，进行简单描述。</p>
 <p><img src="C:\Users\15265\Desktop\测试\HexoBlog\blog\source\images\2024-11-25\创建应用.png"></p>
 <p>创建好应用后进入页面点击设置&gt;应用凭证，我们就可以查看到自己的App ID和App Key了（后面配置需要用！！！到）。</p>
 <p><img src="C:\Users\15265\Desktop\测试\HexoBlog\blog\source\images\2024-11-25\配置key.png"></p>
-<p>3，配置_config.yml</p>
-<p>修改 hexo博客目录的 theme&#x2F;yilia 中的 <code>_config.yml</code> 文件，增加配置如下：</p>
+<h3 id="3，配置-config-yml"><a href="#3，配置-config-yml" class="headerlink" title="3，配置_config.yml"></a>3，配置_config.yml</h3><p> 修改 hexo博客目录的<code> themes\yilia-plus</code> 中的 <code>_config.yml</code> 文件，增加配置如下：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#5、Valine https://valine.js.org</span></span><br><span class="line"><span class="attr">valine:</span> </span><br><span class="line"> <span class="attr">appid:</span> <span class="comment">#Leancloud应用的appId</span></span><br><span class="line"> <span class="attr">appkey:</span> <span class="comment">#Leancloud应用的appKey</span></span><br><span class="line"> <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment">#验证码，verify和notify这两个最好就别动了</span></span><br><span class="line"> <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment">#评论回复提醒</span></span><br><span class="line"> <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment">#评论列表头像样式：&#x27;&#x27;/mm/identicon/monsterid/wavatar/retro/hide</span></span><br><span class="line"> <span class="attr">placeholder:</span> <span class="string">站到,快来说说话!</span> <span class="comment">#评论框占位符</span></span><br></pre></td></tr></table></figure>
 
-<p>4，修改article.ejs</p>
+<h3 id="4，修改article-ejs"><a href="#4，修改article-ejs" class="headerlink" title="4，修改article.ejs"></a>4，修改article.ejs</h3><p> 修改hexo博客目录的<code>themes\yilia-plus\layout\_partial</code>中的<code>article.ejs</code>文件，添加一下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--valine评论系统 --&gt;</span><br><span class="line">&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">  &lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span><br><span class="line">      @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;%- partial(&#x27;post/valine&#x27;, &#123;</span><br><span class="line">      key: post.slug,</span><br><span class="line">      title: post.title,</span><br><span class="line">      url: config.url+url_for(post.path)</span><br><span class="line">      &#125;) %&gt;</span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5，添加valine文件"><a href="#5，添加valine文件" class="headerlink" title="5，添加valine文件"></a>5，添加valine文件</h3><p> 在 yilia 中的 <code>themes\yilia-plus\layout\_partial\post</code>下新增 <code>valine.ejs</code>文件，文件内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;//unpkg.com/valine/dist/Valine.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var notify = &#x27;&lt;%= theme.valine.notify %&gt;&#x27; == true ? true : false;</span><br><span class="line">   var verify = &#x27;&lt;%= theme.valine.verify %&gt;&#x27; == true ? true : false;</span><br><span class="line">    window.onload = function() &#123;</span><br><span class="line">        new Valine(&#123;</span><br><span class="line">            el: &#x27;.comment&#x27;,</span><br><span class="line">            notify: notify,</span><br><span class="line">            verify: verify,</span><br><span class="line">            // emoticon_url: &#x27;https://cloud.panjunwen.com/alu&#x27;,</span><br><span class="line">            // emoticon_list: [&quot;狂汗.png&quot;,&quot;不说话.png&quot;,&quot;汗.png&quot;,&quot;坐等.png&quot;,&quot;献花.png&quot;,&quot;不高兴.png&quot;,&quot;中刀.png&quot;,&quot;害羞.png&quot;,&quot;皱眉.png&quot;,&quot;小眼睛.png&quot;,&quot;暗地观察.png&quot;],</span><br><span class="line">            app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,</span><br><span class="line">            app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,</span><br><span class="line">            placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,</span><br><span class="line">            avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6，进行以上配置后，重新生成、部署博客，三连一下"><a href="#6，进行以上配置后，重新生成、部署博客，三连一下" class="headerlink" title="6，进行以上配置后，重新生成、部署博客，三连一下"></a>6，进行以上配置后，重新生成、部署博客，三连一下</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p> 可以进行简单的测试一下查看是否成功配置，在Leancloud数据存储里面可以查看到所有相关信息。</p>
+<p><img src="C:\Users\15265\Desktop\测试\HexoBlog\blog\source\images\2024-11-25\数据管理.png"></p>
 
     
 
@@ -558,10 +589,37 @@ var _hmt = _hmt || [];
 
 
 
+
 <!--valine评论系统 -->
 
-
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            // emoticon_url: 'https://cloud.panjunwen.com/alu',
+            // emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
+            app_id: "KGiiCrfqsl7wF2lWQU7EiU4w-gzGzoHsz",
+            app_key: "jcKfBQWsKViRqRjcM6lyPckY",
+            placeholder: "站到,快来说说话!",
+            avatar:"mm"
+        });
+    }
+</script>
+    </section>
   
+
 
 
 
@@ -577,56 +635,56 @@ var _hmt = _hmt || [];
         </div>
       </div>
       <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-
-<!--新添加-->
-<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
-<script>
-    var now = new Date(); 
-    function createtime() { 
-        var grt= new Date("07/03/2019 08:00:00");//此处修改你的建站时间或者网站上线时间 
-        now.setTime(now.getTime()+250); 
-        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
-        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
-        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
-        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
-        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
-    } 
-    setInterval("createtime()",250);
-</script>
-
-
-    	<div class="footer-left">
-    		&copy; 2022-2024 <a href="http://example.com/" target="_blank">Dear-Star</a>
-    	</div>
-      	<!-- <div class="footer-right">
-			
-			
-      		GitHub:<a href="https://github.com/JoeyBling/hexo-theme-yilia-plus" target="_blank">hexo-theme-yilia-plus</a> by Litten
-      	</div> -->
+  
+    <script src="/lib/busuanzi.pure.js"></script>
+    
+    
+    
+    
+      <span id="busuanzi_container_site_pv" style="display:none">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        <span class="post-meta-divider">|</span>
+      </span>
+      <span id="busuanzi_container_site_uv" style='display:none'>
+        本站访客数<span id="busuanzi_value_site_uv"></span>人
+      </span>
+  
+    <div class="outer">
+      <div id="footer-info">
+        <div class="footer-left">
+          &copy; 2022-
+                2024 <a href="http://example.com/" target="_blank">
+                    Dear-Star
+                  </a>
+        </div>
+        <!-- <div class="footer-right">
+        
+        
+            GitHub:<a href="https://github.com/JoeyBling/hexo-theme-yilia-plus" target="_blank">hexo-theme-yilia-plus</a> by Litten
+          </div> -->
+        <div class="footer-right">
+          <!--新添加-->
+          <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+          <script>
+            var now = new Date();
+            function createtime() {
+              var grt = new Date("07/03/2019 08:00:00");//此处修改你的建站时间或者网站上线时间 
+              now.setTime(now.getTime() + 250);
+              days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+              hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+              if (String(hnum).length == 1) { hnum = "0" + hnum; } minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+              mnum = Math.floor(minutes); if (String(mnum).length == 1) { mnum = "0" + mnum; }
+              seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+              snum = Math.round(seconds); if (String(snum).length == 1) { snum = "0" + snum; }
+              document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+              document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()", 250);
+          </script>
+        </div>
+      </div>
     </div>
-  </div>
-  
-  
-	<script src="/lib/busuanzi.pure.js"></script>
-	
-  
-  
-	
-	<span id="busuanzi_container_site_pv" style="display:none">
-		本站总访问量<span id="busuanzi_value_site_pv"></span>次	
-	        <span class="post-meta-divider" >|</span>
-	</span>
-  	<span id="busuanzi_container_site_uv" style='display:none'>
-  		本站访客数<span id="busuanzi_value_site_uv"></span>人
-  	</span>
-  
 </footer>
-
     </div>
     <script>
 	var yiliaConfig = {
@@ -736,11 +794,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 心得</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客 问题总结</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客 问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 心得</a>
               </li>
             
             <div class="clearfix"></div>
