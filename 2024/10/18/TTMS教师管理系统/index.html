@@ -18,7 +18,7 @@
 <meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-18T06:45:59.000Z">
-<meta property="article:modified_time" content="2024-10-21T07:52:11.367Z">
+<meta property="article:modified_time" content="2024-12-02T12:45:14.976Z">
 <meta property="article:author" content="Dear-Star">
 <meta property="article:tag" content="博客 开发">
 <meta name="twitter:card" content="summary">
@@ -96,6 +96,8 @@ var _hmt = _hmt || [];
 		<a href="/" class="profilepic">
 			<img src="/img/images.jpeg" class="js-avatar">
 		</a>
+		<!-- 添加每日一言 -->
+		<p id="hitokoto">正在加载一言...</p>
 		<hgroup>
 			<h1 class="header-author"><a href="/">Dear-Star</a></h1>
 		</hgroup>
@@ -356,6 +358,30 @@ var _hmt = _hmt || [];
   
   </header>
         <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 
@@ -549,7 +575,8 @@ var _hmt = _hmt || [];
       .comments{margin:30px;padding:10px;background:#fff}
       @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
     </style>
-    <div id="vcomment" class="comment"></div> 
+    <div id="vcomment" class="comment">
+</div> 
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
@@ -569,6 +596,18 @@ var _hmt = _hmt || [];
         });
     }
 </script>
+
+<style>
+.v[data-class=v] .veditor {
+    background-image: url(https://cdn.jsdelivr.net/gh/drew233/cdn/20200409110727.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+/* 将 nick、email、link 输入框分开 */
+
+</style>
     </section>
   
 
@@ -730,7 +769,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 开发</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,7 +781,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -856,7 +895,8 @@ var _hmt = _hmt || [];
     	</section>
     
 
-    
+
+ 
     	<section class="tools-section tools-section-me" q-show="aboutme">
         
           
@@ -864,8 +904,8 @@ var _hmt = _hmt || [];
   	  	
     	</section>
     
+
   </div>
-  
 </div>
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1001,6 +1041,28 @@ var _hmt = _hmt || [];
 
   
   
+
+
+<!-- 一言API -->
+<!-- 现代写法，推荐 -->
+<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<!--End-->
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+
 </body>
 
 </html>

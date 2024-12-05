@@ -98,6 +98,8 @@ var _hmt = _hmt || [];
 		<a href="/" class="profilepic">
 			<img src="/img/images.jpeg" class="js-avatar">
 		</a>
+		<!-- 添加每日一言 -->
+		<p id="hitokoto">正在加载一言...</p>
 		<hgroup>
 			<h1 class="header-author"><a href="/">Dear-Star</a></h1>
 		</hgroup>
@@ -1414,7 +1416,7 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 开发</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1426,7 +1428,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">博客 资料</a>
+                <a href="javascript:void(0)" class="js-tag color1">博客 开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1540,7 +1542,8 @@ var _hmt = _hmt || [];
     	</section>
     
 
-    
+
+ 
     	<section class="tools-section tools-section-me" q-show="aboutme">
         
           
@@ -1548,8 +1551,8 @@ var _hmt = _hmt || [];
   	  	
     	</section>
     
+
   </div>
-  
 </div>
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -1685,6 +1688,28 @@ var _hmt = _hmt || [];
 
   
   
+
+
+<!-- 一言API -->
+<!-- 现代写法，推荐 -->
+<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<!--End-->
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
+
 </body>
 
 </html>
